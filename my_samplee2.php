@@ -6,39 +6,65 @@ if(isset($_POST['submit']))
 {
 
 
-$security1=$_POST['security1'];
-$security2=$_POST["security2"];
-$security3=$_POST["security3"];
-$security4=$_POST["security4"];
+$reliability1=$_POST['reliability1'];
+$reliability2=$_POST["reliability2"];
+$reliability3=$_POST["reliability3"];
+$reliability4=$_POST["reliability4"];
+$reliability5=$_POST["reliability5"];
+$reliability6=$_POST["reliability6"];
 
-$compatibilty1=$_POST["compatibilty1"];
-$compatibilty2=$_POST["compatibilty2"];
-$compatibilty3=$_POST["compatibilty3"];
-$compatibilty4=$_POST["compatibilty4"];
-
-$performance1=$_POST["performance1"];
-$performance2=$_POST["performance2"];
-$performance3=$_POST["performance3"];
-$performance4=$_POST["performance4"];
+$maintainability1=$_POST['maintainability1'];
+$maintainability2=$_POST["maintainability2"];
+$maintainability3=$_POST["maintainability3"];
+$maintainability4=$_POST["maintainability4"];
+$maintainability5=$_POST["maintainability5"];
+$maintainability6=$_POST["maintainability6"];
 
 
-$licensing1=$_POST["licensing1"];
-$licensing2=$_POST["licensing2"];
-$licensing3=$_POST["licensing3"];
-$licensing4=$_POST["licensing4"];
+$efficiency1=$_POST["efficiency1"];
+$efficiency2=$_POST["efficiency2"];
+$efficiency3=$_POST["efficiency3"];
+$efficiency4=$_POST["efficiency4"];
+$efficiency5=$_POST["efficiency5"];
+$efficiency6=$_POST["efficiency6"];
 
-  $file_open = fopen("2dMatrix.csv", "w");
-  $no_rows = count(file("2dMatrix.csv"));
+
+$testibility1=$_POST["testibility1"];
+$testibility2=$_POST["testibility2"];
+$testibility3=$_POST["testibility3"];
+$testibility4=$_POST["testibility4"];
+$testibility5=$_POST["testibility5"];
+$testibility6=$_POST["testibility6"];
+
+$portability1=$_POST["portability1"];
+$portability2=$_POST["portability2"];
+$portability3=$_POST["portability3"];
+$portability4=$_POST["portability4"];
+$portability5=$_POST["portability5"];
+$portability6=$_POST["portability6"];
+
+$integrity1=$_POST["integrity1"];
+$integrity2=$_POST["integrity2"];
+$integrity3=$_POST["integrity3"];
+$integrity4=$_POST["integrity4"];
+$integrity5=$_POST["integrity5"];
+$integrity6=$_POST["integrity6"];
+
+
+  $file_open = fopen("2dMatrix2.csv", "w");
+  $no_rows = count(file("2dMatrix2.csv"));
   if($no_rows > 1)
   {
    $no_rows = ($no_rows - 1) + 1;
   }
   $arrData = array(
-    array("","security","compatibility","performance","licensing cost"),
-    array("security",$security1,$security2,$security3,$security4),
-    array("compatibility",$compatibilty1,$compatibilty2,$compatibilty3,$compatibilty4),
-    array("performance",$performance1,$performance2,$performance3,$performance4),
-    array("licensing cost",$licensing1,$licensing2,$licensing3,$licensing4)
+    array("","RELIABILITY","MAINTAINABILITY","EFFICIENCY","TESTIBILITY","PORTABILITY","INTEGRITY"),
+    array("RELIABILITY",$reliability1,$reliability2,$reliability3,$reliability4,$reliability5,$reliability6),
+    array("MAINTAINABILITY",$maintainability1,$maintainability2,$maintainability3,$maintainability4,$maintainability5,$maintainability6),
+    array("EFFICIENCY",$efficiency1,$efficiency2,$efficiency3,$efficiency4,$efficiency5,$efficiency6),
+    array("TESTIBILITY",$testibility1,$testibility2,$testibility3,$testibility4,$testibility5,$testibility6),
+    array("PORTABILITY",$portability1,$portability2,$portability3,$portability4,$portability5,$portability6),
+    array("INTEGRITY",$integrity1,$integrity2,$integrity3,$integrity4,$integrity5,$integrity6)
   );
 
 
@@ -68,69 +94,148 @@ $licensing4=$_POST["licensing4"];
 <!DOCTYPE html>
 <html>
  <head>
-  <title>How to Store Form data in CSV File using PHP</title>
+  <title>software selector</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js">
-  function getdata(name){
-      var val1 = document.getElementByName('name').value;
-      var val= 1/val1;
-      document.querySelector('compatibility2').textContent 
-                    = val; 
-      // Do Something 
-}
-  
+
   </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <br />
-  <div class="container">
-   
-   <br />
-   <div class="col-md-6" style="margin:0 auto; float:none;">
-    <form method="post">
-     <h3 align="center">Contact Form</h3>
-     <br />
 
 
-
+    
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-table{
+body, html {
+  height: 110%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  size:100px;
+  overflow:hidden;
+  
+}
 
+* {
+  box-sizing: border-box;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("software1.jpeg");
+  
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  
+  /* Full height */
+  height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Position text in the middle of the page/image */
+.bg-text {
+  
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+  color: black;
+  font-weight: bold;
+  border: 3px solid #f1f1f1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
 }
 table, th, td {
-  border: 10px solid white
-
+  border: 1px ;
+  color: white;
 }
 
-body{color: #FF0000;}
+th, td {
+  padding: 10px;
+}
+/* Set a style for the submit button */
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+option{
+  color:black;
+}
+input
+{
+  color:black;
+}
+select
+{
+  color:black;
+}
+.text-block {
+  position: absolute;
+  top: 75px;
+  left: 200px;
+ 
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 </style>
 </head>
-<body>
+<body  style="background-color:white;" >
 
-<h1><center>Requirements</h1>
+<div class="bg-image"></div>
+<div class="text-block">
+<h1 style="color:white">PLEASE PROVIDE THE RELATIVE RANKINGS ACCORDING TO YOUR REQUIREMENTS</h1>
+  </div>
 
-<table style="width:100%">
+
+
+
+<form method="POST" name="software">
+<div class="bg-text">
+   
+      <table ALIGN="center">
+
   <tr>
      <th></th>
-    <th>SECURITY</th>
-    <th>COMPATIBILITY</th>
-    <th>PERFORMANCE</th>
-    <th>LICENSING COST</th>
+    <th><center>RELIABILITY </center></th>
+    <th><center>MAINTAINABILITY</center></th>
+    <th><center>EFFICIENCY</center></th>
+    <th><center>TESTIBILITY</center></th>
+    <th><center>PORTABILITY</center></th>
+    <th><center>INTEGRITY</center></th>
   </tr>
   <tr>
-    <td><b>SECURITY</b></td>
+    <td><b><center>RELIABILITY</center></b></td>
    
   
   
     <TD ALIGN="center">
        
-            <input type="text"  name="security1" id="sec1"  value="1"readonly> 
+            <input type="text"  name="reliability1" id="rel1"  value="1"readonly> 
     
     </TD>  
     
     
       <TD ALIGN="center">
-      <select name="security2"  id="sec2" onclick="myFunctionsec2()" style="width:100%">        
+      <select name="reliability2"  id="rel2" onclick="myFunctionman1()" style="width:100%">        
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -139,7 +244,7 @@ body{color: #FF0000;}
        </select>
     </TD>  
      <TD ALIGN="center"  >
-     <select name="security3" id="sec3" onclick="myFunctionsec3()" style="width:100%">        
+     <select name="reliability3" id="rel3" onclick="myFunctioneff1()" style="width:100%">        
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -149,7 +254,16 @@ body{color: #FF0000;}
        
     </TD>  
       <TD ALIGN="center" >
-      <select name="security4" id="sec4" onclick="myFunctionsec4()" style="width:100%">        
+      <select name="reliability4" id="rel4" onclick="myFunctiontest1()" style="width:100%">        
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+             </select>
+    </TD> 
+    <TD ALIGN="center" >
+      <select name="reliability5" id="rel5" onclick="myFunctionport1()" style="width:100%">        
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -157,13 +271,22 @@ body{color: #FF0000;}
             <option value="5">5</option>
              </select>
     </TD>  
+    <TD ALIGN="center" >
+      <select name="reliability6" id="rel6" onclick="myFunctionint1()" style="width:100%">        
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+             </select>
+    </TD>   
   </tr>
   <tr>
-    <td><b>COMPATIBILTY</b></td>
+    <td><b><center>MAINTAINABILITY</center></b></td>
     
     <TD ALIGN="center">
          
-       <input type="text"  name="compatibilty1" id="com1"  value="1"readonly>
+       <input type="text"  name="maintainability1" id="man1"  value="1"readonly>
 
 
       
@@ -171,40 +294,89 @@ body{color: #FF0000;}
     
     
       <TD ALIGN="center">
-      <input type="text"  name="compatibilty2" id="com2"  value="1"readonly> 
-       </select>
+      <input type="text"  name="maintainability2" id="com2"  value="1"readonly> 
+       
     </TD>  
 
     <script>
-function myFunctionsec2() {
+function myFunctionman1() {
  
-  document.getElementById("com1").value =1/document.getElementById("sec2").value;
+  document.getElementById("man1").value =1/document.getElementById("rel2").value;
 }
-function myFunctionsec3() {
+function myFunctioneff1() {
  
- document.getElementById("per1").value =1/document.getElementById("sec3").value;
+ document.getElementById("eff1").value =1/document.getElementById("rel3").value;
 }
-function myFunctionsec4() {
+function myFunctiontest1() {
  
- document.getElementById("lic1").value =1/document.getElementById("sec4").value;
+ document.getElementById("test1").value =1/document.getElementById("rel4").value;
 }
-function myFunctioncom3() {
+function myFunctionport1() {
  
- document.getElementById("per2").value =1/document.getElementById("com3").value;
+ document.getElementById("port1").value =1/document.getElementById("rel5").value;
 }
-function myFunctioncom4() {
+function myFunctionint1() {
  
- document.getElementById("lic2").value =1/document.getElementById("com4").value;
+ document.getElementById("int1").value =1/document.getElementById("rel6").value;
+}
+function myFunctioneff2() {
+ 
+ document.getElementById("eff2").value =1/document.getElementById("man3").value;
 }
 
-function myFunctionper4() {
+function myFunctiontest2() {
  
- document.getElementById("lic3").value =1/document.getElementById("per4").value;
+ document.getElementById("test2").value =1/document.getElementById("man4").value;
 }
+
+function myFunctionport2() {
+ 
+ document.getElementById("port2").value =1/document.getElementById("man5").value;
+}
+
+function myFunctionint2() {
+ 
+ document.getElementById("int2").value =1/document.getElementById("man6").value;
+}
+function myFunctiontest3() {
+ 
+ document.getElementById("test3").value =1/document.getElementById("eff4").value;
+}
+
+function myFunctionport3() {
+ 
+ document.getElementById("port3").value =1/document.getElementById("eff5").value;
+}
+
+function myFunctionint3() {
+ 
+ document.getElementById("int3").value =1/document.getElementById("eff6").value;
+}
+
+function myFunctionport4() {
+ 
+ document.getElementById("port4").value =1/document.getElementById("test5").value;
+}
+
+
+function myFunctionint4() {
+ 
+ document.getElementById("int4").value =1/document.getElementById("test6").value;
+}
+
+
+function myFunctionint5() {
+ 
+ document.getElementById("int5").value =1/document.getElementById("port6").value;
+}
+
+
+
+
 </script>
 
      <TD ALIGN="center">
-         <select name="compatibilty3" id="com3" onclick="myFunctioncom3()" style="width:100%">        
+         <select name="maintainability3" id="man3" onclick="myFunctioneff2()" style="width:100%">        
          <option value="1">1</option>
          <option value="2">2</option>
             <option value="3">3</option>
@@ -213,7 +385,25 @@ function myFunctionper4() {
        </select>
     </TD>  
       <TD ALIGN="center">
-       <select name="compatibilty4" id="com4" onclick="myFunctioncom4()" style="width:100%">        
+       <select name="maintainability4" id="man4" onclick="myFunctiontest2()" style="width:100%">        
+       <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+       </select>
+    </TD> 
+    <TD ALIGN="center">
+       <select name="maintainability5" id="man5" onclick="myFunctionport2()" style="width:100%">        
+       <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+       </select>
+    </TD> 
+    <TD ALIGN="center">
+       <select name="maintainability6" id="man6" onclick="myFunctionint2()" style="width:100%">        
        <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -223,25 +413,43 @@ function myFunctionper4() {
     </TD> 
   </tr>
     <tr>
-    <td><b>PERFORMANCE</b></td>
+    <td><b><center>EFFICIENCY</center></b></td>
     
     <TD ALIGN="center">
-    <input type="text"  name="performance1"  id="per1"  value="1" readonly> 
+    <input type="text"  name="efficiency1"  id="eff1"  value="1" readonly> 
        
     </TD>  
     
     
       <TD align="center">
-      <input type="text"  name="performance2"  id="per2"  value="1" readonly> 
-    
+      <input type="text"  name="efficiency2"  id="eff2"  value="1" readonly> 
+</td>
     </TD>  
      <TD ALIGN="center">
-     <input type="text"  name="performance3" id="per3"  value="1"readonly> 
-         
-       </select>
+     <input type="text"  name="efficiency3" id="eff3"  value="1"readonly> 
+     </td>
+      
     </TD>  
       <TD align="center">
-       <select name="performance4" id="per4" onclick="myFunctionper4()" style="width:100%">        
+       <select id="eff4" name="efficiency4" onclick="myFunctiontest3()" style="width:100%">        
+       <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+       </select>
+    </TD> 
+    <TD align="center">
+       <select id="eff5" name="efficiency5" onclick="myFunctionport3()" style="width:100%">        
+       <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+       </select>
+    </TD> 
+    <TD align="center">
+       <select id="eff6" name="efficiency6" onclick="myFunctionint3()" style="width:100%">        
        <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -251,31 +459,113 @@ function myFunctionper4() {
     </TD> 
   </tr>
     <tr>
-    <td><b>LICENSING COST</b></td>
+    <td><b><center>TESTIBILITY</center></b></td>
     
     <TD ALIGN="center">
-    <input type="text"  name="licensing1"  id="lic1"  value="1" readonly> 
+    <input type="text"  name="testibility1"  id="test1"  value="1" readonly> 
     </TD>  
     
     
-      <TD align="center">
-      <input type="text"  name="licensing2"  id="lic2"  value="1" readonly> 
+      <TD ALIGN="center">
+      <input type="text"  name="testibility2"  id="test2"  value="1" readonly> 
     </TD>  
      <TD ALIGN="center">
-     <input type="text"  name="licensing3"  id="lic3"  value="1" readonly> 
+     <input type="text"  name="testibility3"  id="test3"  value="1" readonly> 
     </TD>  
-      <TD align="center">
-    <input type="text"  name="licensing4" id="lic4"  value="1"readonly> 
-      </select>
+      <TD ALIGN="center">
+    <input type="text"  name="testibility4" id="test4"  value="1"readonly> 
+</td>
+   
+    <TD ALIGN="center">
+       <select id="test5" name="testibility5" onclick="myFunctionper4()" style="width:100%">        
+       <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+       </select>
+    </TD> 
+    <TD ALIGN="center">
+       <select id="test6" name="testibility6" onclick="myFunctionint4()" style="width:100%">        
+       <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+       </select>
     </TD> 
   </tr>
+  <tr>
+  <td><b><center>PORTABILITY</center></b></td>
+    
+    <TD ALIGN="center">
+    <input type="text"  name="portability1"  id="port1"  value="1" readonly> 
+    </TD>  
+    <TD ALIGN="center">
+    <input type="text"  name="portability2"  id="port2"  value="1" readonly> 
+    </TD> 
+    <TD ALIGN="center">
+    <input type="text"  name="portability3"  id="port3"  value="1" readonly> 
+    </TD> 
+    <TD ALIGN="center">
+    <input type="text"  name="portability4"  id="port4"  value="1" readonly> 
+    </TD> 
+    <TD ALIGN="center">
+    <input type="text"  name="portability5"  id="port5"  value="1" readonly> 
+    </TD> 
+    <TD align="center">
+       <select id="port6" name="portability6" onclick="myFunctionint5()" style="width:100%">        
+       <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+       </select>
+    </TD> 
+
+
+  </tr>
+
+  <tr>
+  <td><b><center>INTEGRITY</center></b></td>
+    
+    <TD ALIGN="center">
+    <input type="text"  name="integrity1"  id="int1"  value="1" readonly> 
+    </TD>  
+    <TD ALIGN="center">
+    <input type="text"  name="integrity2"  id="int2"  value="1" readonly> 
+    </TD> 
+    <TD ALIGN="center">
+    <input type="text"  name="integrity3"  id="int3"  value="1" readonly> 
+    </TD> 
+    <TD ALIGN="center">
+    <input type="text"  name="integrity4"  id="int4"  value="1" readonly> 
+    </TD> 
+    <TD ALIGN="center">
+    <input type="text"  name="integrity5"  id="int5"  value="1" readonly> 
+    </TD> 
+    <TD ALIGN="center">
+    <input type="text"  name="integrity6"  id="int6"  value="1" readonly> 
+    </TD> 
+</tr>
+
 </table>
 <br>
 <div class="form-group" align="center">
-      <input type="submit" name="submit" class="btn btn-info" value="Submit" />
+<input type="submit" class="btn" NAME="submit" value="submit">
+</div>
      </div>
+</form>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 
